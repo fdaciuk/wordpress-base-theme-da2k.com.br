@@ -1,12 +1,15 @@
 <?php
-if( ! defined( 'ABSPATH' ) ) {
-    header( 'Location: /' );
-    exit;
-}
+require_once 'functions/security.php';
+get_header();
 ?>
-<?php get_header() ?>
 
 <?php if( have_posts() ) : while( have_posts() ) : the_post() ?>
+    <?php
+        if( has_post_thumbnail() ) {
+            the_post_thumbnail();
+        }
+    ?>
+
     <h2>
         <a href="<?php the_permalink() ?>">
             <?php the_title() ?>
