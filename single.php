@@ -1,6 +1,9 @@
 <?php
 require_once 'functions/security.php';
 get_header();
+
+the_post();
+$single_post = apply_filters( 'get_single_content', false );
 ?>
 
 <?php echo $single_post->thumbnail ?>
