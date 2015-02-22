@@ -1,5 +1,5 @@
 <?php
-require_once 'functions/security.php';
+require_once __DIR__ . '/functions/security.php';
 get_header();
 
 the_post();

@@ -4,3 +4,15 @@ Author: Fernando Daciuk
 Description: Tema para apresentação da série "Criando temas com WordPress"
 Version: 1.0
 */
+
+body {
+    padding: 30px;
+}
+
+label {
+    display: block;
+}
+
+div {
+    margin-bottom: 20px;
+}
