@@ -16,3 +16,11 @@ label {
 div {
     margin-bottom: 20px;
 }
+
+.alert-success {
+    color: green;
+}
+
+.alert-error {
+    color: red;
+}
