@@ -62,18 +62,26 @@ class Service_Contact_Form {
     }
 
     private function is_spam() {
-        $has_malicious_content = preg_match( '/bcc:|cc:|multipart|\[url|\[link|Content-Type:/i', implode( $_POST ) );
-        $has_more_than_three_links = preg_match_all( '/<a|http:/i', implode( $_POST ) ) > 3;
-        $spam_field_is_filled = ! empty( $_POST[ 'field_mail' ] );
-
-        if( $has_malicious_content ||
-            $has_more_than_three_links ||
-            $spam_field_is_filled
+        if( $this->has_malicious_content() ||
+            $this->has_more_than_three_links() ||
+            $this->spam_field_is_filled()
         ) {
             return true;
         }
 
         return false;
+    }
+
+    private function has_malicious_content() {
+        return preg_match( '/bcc:|cc:|multipart|\[url|\[link|Content-Type:/i', implode( $_POST ) );
+    }
+
+    private function has_more_than_three_links() {
+        return preg_match_all( '/<a|http:/i', implode( $_POST ) ) > 3;
+    }
+
+    private function spam_field_is_filled() {
+        return !empty( $_POST[ 'field_mail' ] );
     }
 
     private function get_status_message( $status = 'success' ) {
