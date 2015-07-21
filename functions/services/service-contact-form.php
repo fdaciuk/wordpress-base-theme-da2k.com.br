@@ -120,6 +120,8 @@ class Service_Contact_Form {
         $message = $this->message_to_sent( $fields );
         $headers = array(
             // Cópia oculta pra mim :)
+            'MIME-Version: 1.0' . "\r\n",
+            'Content-type: text/html; charset=UTF8' . "\r\n",
             'Bcc: f.daciuk+mcd@gmail.com',
             'Reply-To: ' . $fields[ 'email' ][ 'value' ]
         );
