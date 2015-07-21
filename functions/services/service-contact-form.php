@@ -116,11 +116,11 @@ class Service_Contact_Form {
 
     private function message_sent( $fields ) {
         $to = get_post_meta( get_the_ID(), 'contact_email', true );
-        $subject = '[MCD] E-mail do site - ' . $fields[ 'subject' ][ 'value' ];
+        $subject = 'E-mail do site - ' . $fields[ 'subject' ][ 'value' ];
         $message = $this->message_to_sent( $fields );
         $headers = array(
             // Cópia oculta pra mim :)
-            'Bcc: f.daciuk+mcd@gmail.com',
+            'Bcc: your@email.com',
             'Reply-To: ' . $fields[ 'email' ][ 'value' ]
         );
         $attachments = '';
